@@ -1,0 +1,72 @@
+body
+{
+	background-color: gray;
+	font-family:Verdana;
+	font-size: 18px;
+	color:white
+}
+
+h1
+{
+	font-size: 36px;
+}
+
+a:link
+{
+	padding:24px;
+	color:yellow;
+	text-decoration: none;
+	
+}
+
+a:visited
+{
+	color:yellow;
+	text-decoration: none;
+	
+}
+
+a:hover
+{
+	background-color: #F36742;
+	color: white;
+	text-decoration: none;	
+}
+
+#footer
+{
+    color:white;
+	text-align: center;
+	padding:0px;
+	font-size:12px;
+	position: absolute; bottom:0; right:0; 
+
+}
+
+.photo1
+{
+	width: 450px;
+	transition: all 0.2s ease-in-out;
+}
+
+.photo1:hover
+{
+	-webkit-transform: scale(0.9);
+	-ms-transform: scale(0.9);
+	transform: scale(0.9);
+}
+
+.photo2
+{
+	width: 450px;
+	transition: transform .2s ease-in-out;
+}
+
+.photo2:hover
+{
+	-webkit-transform: scale(0.95) rotate(5deg);
+	-ms-transform: scale(0.95) rotate(5deg);
+	transform: scale(0.95) rotate(5deg);
+}
+
+

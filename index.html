@@ -1,0 +1,117 @@
+<html lang="pl">
+<head>
+	
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="style.css" type="text/css" />
+    <title>Strona główna</title>
+	<script>
+    function zegarek()
+        {
+            var data = new Date();
+            var godzina = data.getHours();
+            var minuta = data.getMinutes();
+            var sekunda = data.getSeconds();
+            var dzien = data.getDate();
+            var dzienN = data.getDay();
+            var miesiac = data.getMonth();
+            var rok = data.getFullYear();
+           
+            if (minuta < 10) minuta = "0" + minuta;
+            if (sekunda < 10) sekunda = "0" + sekunda;
+           
+            var dni = new Array("niedziela", "poniedziałek", "wtorek", "środa", "czwartek", "piątek", "sobota");
+            var miesiace = new Array("stycznia", "lutego", "marca", "kwietnia", "maja", "czerwca", "lipca", "sierpnia", "września", "października", "listopada", "grudnia");
+           
+            var pokazDate = "Dzisiaj jest " + dni[dzienN] + ', ' + dzien + ' ' + miesiace[miesiac] + ' ' + rok + " roku.<br />Godzina " + godzina + ':' + minuta + ':' + sekunda;
+            document.getElementById("zegar").innerHTML = pokazDate;
+			
+            setTimeout(zegarek, 1000);            
+        }        
+    </script>
+	
+	<script language="Javascript">
+
+function getCookieVal (offset) {
+  var endstr = document.cookie.indexOf (";", offset);
+  if (endstr == -1)
+    endstr = document.cookie.length;
+  return unescape(document.cookie.substring(offset, endstr));
+}
+
+function GetCookie (name) {
+  var arg = name + "=";
+  var alen = arg.length;
+  var clen = document.cookie.length;
+  var i = 0;
+  while (i < clen) {
+    var j = i + alen;
+    if (document.cookie.substring(i, j) == arg)
+      return getCookieVal (j);
+    i = document.cookie.indexOf(" ", i) + 1;
+    if (i == 0)
+      break;
+  }
+  return null;
+}
+
+function SetCookie (name, value) {
+  var argv = SetCookie.arguments;
+  var argc = SetCookie.arguments.length;
+  var expires = (argc > 2) ? argv[2] : null;
+  var path = (argc > 3) ? argv[3] : null;
+  var domain = (argc > 4) ? argv[4] : null;
+  var secure = (argc > 5) ? argv[5] : false;
+  document.cookie = name + "=" + escape (value) +
+    ((expires == null) ? "" : ("; expires=" + expires.toGMTString())) +
+    ((path == null) ? "" : ("; path=" + path)) +
+    ((domain == null) ? "" : ("; domain=" + domain)) +
+    ((secure == true) ? "; secure" : "");
+}
+
+function DeleteCookie(name) {
+  var exp = new Date();
+  FixCookieDate (exp); // Correct for Mac bug
+  exp.setTime (exp.getTime() - 1);  // This cookie is history
+  var cval = GetCookie (name);
+  if (cval != null)
+    document.cookie = name + "=" + cval + "; expires=" + exp.toGMTString();
+}
+
+var expdate = new Date();
+var num_visits;
+expdate.setTime(expdate.getTime() + (5*24*60*60*1000));
+if (!(num_visits = GetCookie("num_visits")))
+  num_visits = 0;
+num_visits++;
+SetCookie("num_visits",num_visits,expdate);
+
+</script>
+
+<script language="Javascript">
+
+document.write("Odwiedzasz mnie już "+num_visits+" raz.");
+
+</script>
+</head>
+
+<body onload="zegarek()">
+<div id="zegar"></div>
+</body>
+
+<div id="hiperlacza">
+	<p><a href="adobedreamweaver.html"><H1 ALIGN=CENTER>Adobe Dreamweaver</H1></a></p>
+	<p><a href="jezykiskompilowane.html"><H1 ALIGN=CENTER>Języki skompilowane</H1></a></p>
+	<p><a href="jezykiskryptowe.html"><H1 ALIGN=CENTER>Języki skryptowe</H1></a></p>
+	<p><a href="kompilatorlinkerdebuger.html"><H1 ALIGN=CENTER>Kompilator,linker,debuger</H1></a></p>
+	<p><a href="algorytmy.html"><H1 ALIGN=CENTER>Algorytmy</H1></a></p>
+
+
+<div id="footer">
+<center>
+<p>Autor: Paweł Kozłowski kl. III TIG</p>
+<p>Kontakt: pawel.kozlowski1337@gmail.com</p>
+</center>
+</div>
+
+
+</html>
